@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 [System.AttributeUsage(System.AttributeTargets.Field)]
 public class PotionSelectorAttribute : PropertyAttribute
@@ -14,7 +15,13 @@ public class TestBehaviour : MonoBehaviour
 
 	public void Start()
 	{
-		// PotionDB.Instance pra acessar o "banco de dados" de pocoes
-		// Imprimir o quanto aquela potion recupera
-	}
+        for(int i = 0; i < PotionDB.Instance.potions.Length; i++)
+        {
+            if(PotionDB.Instance.potions[i].name == potionName)
+            {
+                Debug.Log(PotionDB.Instance.potions[i].heal);
+                //Valeu Lessa
+            }   
+        }        
+    }
 }
